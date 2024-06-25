@@ -1,5 +1,5 @@
 > [!NOTE]
-> CNC was originally created by [Bill Curran](bcurran3). The original repo can be found [here](https://github.com/bcurran3/ChocolateyPackages/tree/master/choco-nuspec-checker).
+> CNC was originally created by [Bill Curran](https://github.com/bcurran3). The original repo can be found [here](https://github.com/bcurran3/ChocolateyPackages/tree/master/choco-nuspec-checker).
 
 <img src="https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_icon.png" width="139" height="88">
 
