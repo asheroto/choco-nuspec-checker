@@ -160,7 +160,7 @@ $XMLComment = "Do not remove this test for UTF-8: if `“Ω`” doesn`’t appea
 $XMLNamespace = "http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd"
 # <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
 
-## Import preferences - see comments in CNC.config for settings 
+## Import preferences - see comments in CNC.config for settings
 #[xml]$ConfigFile = Get-Content "$scriptDir\CNC.config"
 #$UpdateAll       = $ConfigFile.Settings.Preferences.UpdateAll
 #$CDN             = $ConfigFile.Settings.Preferences.CDN
@@ -205,28 +205,28 @@ if ($EditPackageNotes) {
 
 if ($ShowFooter) {
     Write-Host "  ** Displaying contents of $CNCFooter." -Foreground Magenta
-    Write-Host	
+    Write-Host ""
     Get-Content $CNCFooter
     return
 }
 
 if ($ShowHeader) {
     Write-Host "  ** Displaying contents of $CNCHeader." -Foreground Magenta
-    Write-Host	
+    Write-Host ""
     Get-Content $CNCHeader
     return
 }
 
 if ($ShowPackageNotes) {
     Write-Host "  ** Displaying contents of $CNCPackageNotes." -Foreground Magenta
-    Write-Host	
+    Write-Host ""
     Get-Content $CNCPackageNotes
     return
 }
 
 if ($OpenValidatorInfo) {
     Write-Host "  ** Opening https://docs.chocolatey.org/en-us/community-repository/moderation/package-validator/rules/." -Foreground Magenta
-    Write-Host	
+    Write-Host ""
     &start https://docs.chocolatey.org/en-us/community-repository/moderation/package-validator/rules/
     return
 }
@@ -281,18 +281,18 @@ if (!(Test-Path $path)) {
     Write-Host "           ** $path is an invalid path." -Foreground Red
     return
 }
-   
+
 # BEGIN FUNCTIONS ------------------------------------------------------------------------------------------------
 
 # Borrowed and slightly modified from
 # https://blogs.technet.microsoft.com/samdrey/2014/03/26/determine-the-file-encoding-of-a-file-csv-file-with-french-accents-or-other-exotic-characters-that-youre-trying-to-import-in-powershell/
-# UTF-8 w/o BOM reports as ASCII. ASCII is a subset of UTF-8. 
+# UTF-8 w/o BOM reports as ASCII. ASCII is a subset of UTF-8.
 
 function Get-FileEncoding {
     [CmdletBinding()] Param (
         [Parameter(Mandatory = $True, ValueFromPipelineByPropertyName = $True)] [string]$Path
     )
-	
+
     [byte[]]$byte = get-content -Encoding byte -ReadCount 4 -TotalCount 4 -Path $Path
 
     if ($byte[0] -eq 0xef -and $byte[1] -eq 0xbb -and $byte[2] -eq 0xbf)
@@ -381,7 +381,7 @@ function Validate-URL([string]$element, [string]$url) {
             $HTTP_Response = $HTTP_Request.GetResponse()
             Write-Host "`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b                `b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b" -NoNewLine
             $HTTP_Status = [int]$HTTP_Response.StatusCode
-            if ($HTTP_Status -eq 200) { 
+            if ($HTTP_Status -eq 200) {
                 $GLOBAL:ValidURL = $True
             } else {
                 Write-Host "`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b                `b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b" -NoNewLine
@@ -402,7 +402,7 @@ function Validate-URL([string]$element, [string]$url) {
         } catch {
             $HTTP_Status = [regex]::matches($_.exception.message, "(?<=\()[\d]{3}").Value
             Write-Host "`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b                `b`b`b`b`b`b`b`b`b`b`b`b`b`b`b`b" -NoNewLine
-            if ($element -notmatch ".PS1") {	      
+            if ($element -notmatch ".PS1") {
                 Write-Host "WARNING:   ** $element - the URL:`n              $url`n              is possibly bad, status code: $HTTP_Status. This will trigger a message from the verifier:" -Foreground Red
                 if (!$ReduceOutput) {
                     Write-Host "           ** Requirement: The $element element in the nuspec file should be a valid Url. Please correct this" -Foreground Cyan
@@ -443,7 +443,7 @@ function Check-LicenseFile {
     $LicenseFile = (Get-ChildItem -Path $path -Include *LICENSE* -Recurse)
     if ($LicenseFile) {
         if (!$ReduceOutput) {
-            Write-Host 'FYI:       ** Binary files - '$LicenseFile.Name'file(s) found.' -Foreground Green          
+            Write-Host "FYI:       ** Binary files - $LicenseFile.Name file(s) found." -ForegroundColor Green
         }
         $GLOBAL:FYIs++
     } else {
@@ -460,7 +460,8 @@ function Check-VerificationFile {
     $VerificationFile = (Get-ChildItem -Path $path -Include *VERIFICATION* -Recurse)
     if ($VerificationFile) {
         if (!$ReduceOutput) {
-            Write-Host 'FYI:       ** Binary files - '$VerificationFile.Name'file(s) found.' -Foreground Green
+            Write-Host "FYI:       ** Binary files - $VerificationFile.Name file(s) found." -ForegroundColor Green
+
         }
         $GLOBAL:FYIs++
     } else {
@@ -746,7 +747,7 @@ function Check-OnlineStatus {
     if (($NuspecID -ne 'choco-nuspec-checker') -and ($PackagePageInfo -match '
 Some Checks Have Failed or Are Not Yet Complete')) {
         if (!$ReduceOutput) {
-            Write-Host "FYI:       ** $NuspecID current status: 
+            Write-Host "FYI:       ** $NuspecID current status:
 Some Checks Have Failed or Are Not Yet Complete" -Foreground Red
         }
         $GLOBAL:FYIs++
@@ -848,7 +849,7 @@ function Update-CDNURL([string]$oldURL) {
         return $GitHackURL
     }
     if ($jsDelivrCDN) {
-        # this will fail if link is not to the master branch  
+        # this will fail if link is not to the master branch
         if ($oldURL -match 'https://raw.githubusercontent.com') {
             $jsDelivrURL = ($oldURL -replace 'https://raw.githubusercontent.com', 'https://cdn.jsdelivr.net/gh')
             $jsDelivrURL = ($jsDelivrURL -replace 'master/', '')
@@ -1097,7 +1098,7 @@ ForEach ($path in $folderlist) {
     $nuspecXML = $LocalnuspecFile
     [xml]$nuspecFile = Get-Content $nuspecXML
     $NuspecAuthors = $nuspecFile.package.metadata.authors
-    $NuspecBugTrackerURL = $nuspecFile.package.metadata.bugtrackerurl	
+    $NuspecBugTrackerURL = $nuspecFile.package.metadata.bugtrackerurl
     $NuspecConflicts = $nuspecFile.package.metadata.conflicts # Built for the future
     $NuspecCopyright = $nuspecFile.package.metadata.copyright
     $NuspecDependencies = $nuspecFile.package.metadata.dependencies
@@ -1136,7 +1137,7 @@ ForEach ($path in $folderlist) {
         Write-Host "           ** Opening all .nuspec URLs in your default browser for viewing." -Foreground Magenta
         Open-URLs
     }
-	
+
     # CHECKS ------------------------------------------------------------------------------------------------
 
     # Trusted package check
@@ -1305,7 +1306,7 @@ ForEach ($path in $folderlist) {
         }
         $DependencyName = $NuspecDependencies.dependency.id
         if ($NuspecDependencies.dependency.id.count -eq 1) {
-            if ($NuspecDependencies.dependency.version -eq $null) {
+            if ($null -eq $NuspecDependencies.dependency.version) {
                 Write-Warning "  ** <dependencies> - $DependencyName has no version. This will trigger a message from the verifier:"
                 if (!$ReduceOutput) {
                     Write-Host "           ** Guideline: Package contains dependencies with no specified version. You should at least specify`n              a minimum version of a dependency." -Foreground Cyan
@@ -1316,7 +1317,7 @@ ForEach ($path in $folderlist) {
             $DependencyNumber = 0
             do {
                 $DependencyName = $NuspecDependencies.dependency.id[$DependencyNumber]
-                if ($NuspecDependencies.dependency[$DependencyNumber].version -eq $null) {
+                if ($null -eq $NuspecDependencies.dependency[$DependencyNumber].version) {
                     Write-Warning "  ** <dependencies> - ""$DependencyName"" has no version. This will trigger a message from the verifier:"
                     if (!$ReduceOutput) {
                         Write-Host "           ** Guideline: Package contains dependencies with no specified version. You should at least specify`n              a minimum version of a dependency." -Foreground Cyan
@@ -1350,7 +1351,7 @@ ForEach ($path in $folderlist) {
         }
         Check-Markdown "<description>" $NuspecDescription
         if ($NuspecDescription.Length -lt 30) {
-            Write-Warning "  ** <description> - is less than 30 characters." 
+            Write-Warning "  ** <description> - is less than 30 characters."
             if (!$ReduceOutput) {
                 Write-Host "           ** Guideline: Description should be sufficient to explain the software. Please fill in the description`n              with more information about the software. Feel free to use use markdown." -Foreground Cyan
             }
@@ -1487,7 +1488,7 @@ ForEach ($path in $folderlist) {
             } else {
                 Write-Warning "  ** <iconUrl> - uses a GitHub raw link. Please use a CDN such as:"
                 if (!$ReduceOutput) {
-                    Write-Host "           ** $CDNlist" -Foreground Cyan		   
+                    Write-Host "           ** $CDNlist" -Foreground Cyan
                     Write-Host "           ** Suggestion: Consider running CNC -UpdateImageURLs to update it." -Foreground Cyan
                 }
                 $GLOBAL:Suggestions++
@@ -1573,7 +1574,7 @@ ForEach ($path in $folderlist) {
     } else {
         Validate-URL "<mailingListUrl>" $NuspecMailingListURL
     }
-	
+
     # <owners> checks
     if (!($NuspecOwners)) {
         Write-Host "WARNING:   ** <owners> element is empty, this element is a requirement." -Foreground Red
@@ -1639,7 +1640,7 @@ ForEach ($path in $folderlist) {
             $GLOBAL:Guidelines++
         }
     }
-	
+
     # <projectUrl> checks
     if (!($NuspecProjectURL)) {
         Write-Host "WARNING:   ** <projectUrl> - element is empty. This will trigger a message from the verifier:" -Foreground Red
@@ -1786,7 +1787,7 @@ ForEach ($path in $folderlist) {
         }
         $ScriptFile = (Get-Item $_).Name
         $ScriptFile = $ScriptFile.toupper()
-        $HasPS1EAP = Check-PS1EAP $_ 
+        $HasPS1EAP = Check-PS1EAP $_
         if (!$HasPS1EAP) {
             Add-PS1EAP $_
         }
@@ -1847,7 +1848,7 @@ ForEach ($path in $folderlist) {
                 $GLOBAL:Required++
             }
             if (($InstallScript -match '-url' -or $InstallScript -match '$url') -and ($InstallScript -notmatch 'checksum')) {
-                Write-Host "WARNING:   ** $ScriptFile downloads files but doesn't include checksums." -Foreground Red 
+                Write-Host "WARNING:   ** $ScriptFile downloads files but doesn't include checksums." -Foreground Red
                 # TDL: Most likely causes a validator error but I need to find and quote it.
                 $GLOBAL:Suggestions++
             }
@@ -1926,7 +1927,7 @@ ForEach ($path in $folderlist) {
 
     # leave space between output when recursing
     if ($recurse) {
-        Write-Host "`n" 
+        Write-Host "`n"
     }
 
     # main recurse foreach loop ends here
