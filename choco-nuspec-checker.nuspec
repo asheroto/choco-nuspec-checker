@@ -7,7 +7,7 @@
         <title>(unofficial) Chocolatey .nuspec Checker (CNC) (Script)</title>
         <authors>Bill Curran, asheroto</authors>
         <owners>TheCakeIsNaOH</owners>
-        <licenseUrl>https://opensource.org/license/gpl-3-0</licenseUrl>
+        <licenseUrl>https://choosealicense.com/licenses/gpl-3.0/</licenseUrl>
         <projectUrl>https://github.com/asheroto/choco-nuspec-checker</projectUrl>
         <iconUrl>https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
