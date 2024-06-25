@@ -9,7 +9,7 @@
         <owners>TheCakeIsNaOH</owners>
         <licenseUrl>https://www.gnu.org/licenses/gpl.html</licenseUrl>
         <projectUrl>https://github.com/bcurran3/ChocolateyPackages/tree/master/choco-nuspec-checker</projectUrl>
-        <iconUrl>https://cdn.jsdelivr.net/gh/bcurran3/ChocolateyPackages/choco-nuspec-checker/choco-nuspec-checker_icon.png</iconUrl>
+        <iconUrl>https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_icon.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>
 ---
@@ -19,7 +19,7 @@ To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ]
 
 ---
 
-![Screenshot of (unofficial) Chocolatey .nuspec Checker (CNC) (Script)](https://cdn.jsdelivr.net/gh/bcurran3/ChocolateyPackages/choco-nuspec-checker/choco-nuspec-checker_screenshot.png)
+![Screenshot of (unofficial) Chocolatey .nuspec Checker (CNC) (Script)](https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_screenshot.png)
 
 ## **choco-nuspec-checker** (**CNC**) is a PowerShell script I designed for Chocolatey package maintainers/creators to check Chocolatey .nuspec files for common errors and omissions... and automatically fix most of them! Find out AND FIX what the Chocolatey validator is going to tell you BEFORE you submit your package. **CNC** also goes beyond it's original scope and checks for common Chocolatey install/uninstall script errors and omissions as well.
 

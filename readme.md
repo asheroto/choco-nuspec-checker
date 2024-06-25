@@ -12,8 +12,11 @@
 To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://chocolatey.org/packages/choco-protocol-support)
 
 ---
+
+> [!NOTE]
+> CNC was originally created by Bill Curran and is now maintained by TheCakeIsNaOH. The original repo can be found [here](https://github.com/bcurran3/ChocolateyPackages/tree/master/choco-nuspec-checker).
 	
-![Screenshot of (unofficial) Chocolatey .nuspec Checker (Script)](https://raw.githubusercontent.com/bcurran3/ChocolateyPackages/master/choco-nuspec-checker/choco-nuspec-checker_screenshot.png)
+![Screenshot of (unofficial) Chocolatey .nuspec Checker (Script)](https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_screenshot.png)
 
 ## **choco-nuspec-checker** (**CNC**) is a PowerShell script I designed for Chocolatey package maintainers/creators to check Chocolatey .nuspec files for common errors and omissions... and automatically fix most of them! Find out AND FIX what the Chocolatey validator is going to tell you BEFORE you submit your package. **CNC** also goes beyond it's original scope and checks for common Chocolatey install/uninstall script errors and omissions as well.
 
@@ -111,4 +114,3 @@ If applicable, please always consider donating or purchasing the software you in
 <h3>TIA,</h3>
 
 <h3>Bill</h3>
-
