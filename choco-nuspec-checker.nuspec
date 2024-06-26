@@ -3,10 +3,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
     <metadata>
         <id>choco-nuspec-checker</id>
-        <version>2024.06.25</version>
+        <version>2024.06.26</version>
         <title>(unofficial) Chocolatey .nuspec Checker (CNC) (Script)</title>
         <authors>Bill Curran, asheroto</authors>
-        <owners>TheCakeIsNaOH</owners>
+        <owners>TheCakeIsNaOH, asheroto</owners>
         <licenseUrl>https://choosealicense.com/licenses/gpl-3.0/</licenseUrl>
         <projectUrl>https://github.com/asheroto/choco-nuspec-checker</projectUrl>
         <iconUrl>https://rawcdn.githack.com/asheroto/choco-nuspec-checker/cfa462a9f4e4fdda037c0051b1af80bb335f01ff/choco-nuspec-checker_icon.png</iconUrl>
@@ -57,7 +57,7 @@ CNC was originally created by [Bill Curran](https://github.com/bcurran3). The or
         <summary>(unofficial) Chocolatey .nuspec Checker checks your Chocolatey .nuspec files for common errors and ommisions.</summary>
         <releaseNotes>
 ### CHANGELOG:
-* 2024.06.25 - Fixed a bug where the -Update switch was not working correctly (specifically when saving nuspec file as UTF-8 w/o BOM).
+* 2024.06.26 - Fixed a bug where the -Update switch was not working correctly (specifically when saving nuspec file as UTF-8 w/o BOM).
 * 2024.xx.xx - New CNC.config file for setting your preferences/defaults. New offline mode. BREAKING CHANGES: CNCFooter.txt, CNCHeader.txt, and CNCPackageNotes.txt are no longer used. Functionality is replaced with contents in CNC.config. When using a UseCDN switch -UpdateImageURLs defaults to true. Can now replace defunct Staticaly CDN URLs with other CDN URLs.
 * 2023.09.10 - -OptimizeImages works again, added optimization of JPG files if jpegoptim is installed when using the -OptimizeImages feature, -UpdateXMLNamespace works again
 * 2023.05.17 - CNC now returns a non-zero exit code if there are any required changes and displays the total required changes of all nuspec files when the -Recurse switch is used

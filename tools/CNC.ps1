@@ -1,7 +1,7 @@
 ﻿# $ErrorActionPreference = 'Stop'
-# CNC.ps1 Copyleft 2018-2024 by Bill Curran AKA BCURRAN3 and asheroto
+# CNC.ps1 Copyleft 2018-2024 by Bill Curran (BCURRAN3) and asheroto
 # LICENSE: GNU GPL v3 - https://www.gnu.org/licenses/gpl.html
-# Open a GitHub issue at https://github.com/bcurran3/ChocolateyPackages/issues if you have suggestions for improvement.
+# Open a GitHub issue at https://github.com/asheroto/choco-nuspec-checker/issues if you have suggestions for improvement.
 
 # REF: https://docs.microsoft.com/en-us/nuget/reference/nuspec
 # REF: https://docs.chocolatey.org/en-us/community-repository/moderation/package-validator/rules/
@@ -135,8 +135,8 @@ param (
     [switch]$WhatIf
 )
 
-Write-Host "CNC.ps1 v2024.06.25 - (unofficial) Chocolatey .nuspec Checker ""CNC - Run it through the Bill.""" -Foreground White
-Write-Host "Copyleft 2018-2024 Bill Curran (bcurran3@yahoo.com) & asheroto - free for personal and commercial use`n" -Foreground White
+Write-Host "CNC.ps1 v2024.06.26 - (unofficial) Chocolatey .nuspec Checker ""CNC - Run it through the Bill.""" -Foreground White
+Write-Host "Copyleft 2018-2024 Bill Curran (BCURRAN3) & asheroto - free for personal and commercial use`n" -Foreground White
 
 # Verify ChocolateyToolsLocation was created by Get-ToolsLocation during install and is in the environment
 if (!($ENV:ChocolateyToolsLocation)) { $ENV:ChocolateyToolsLocation = "$ENV:SystemDrive\tools" }
